@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'flowbite';
+/* @import 'flowbite/css/flowbite.css'; */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@200&family=Mulish&family=Playfair&family=Roboto+Slab&family=Roboto:ital,wght@0,100;1,500&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'DM Serif';
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.homebg {
+  border-radius: 0px 0px 0px 291px;
+  height: 750px;
+  background-image: url(../public/Images/Homebg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
