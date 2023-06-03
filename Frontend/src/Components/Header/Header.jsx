@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <>
             <nav className="bg-white dark:bg-gray-900 w-full z-20 top-0 left-0 ">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="/" className="flex items-center">
                         <img src="/Images/Logo.png" alt="Logo" />
                         <h1 className="text-4xl ml-3">Interno</h1>
