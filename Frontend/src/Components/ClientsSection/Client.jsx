@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Client = ({ clientData }) => {
-    console.log("cc", clientData);
     return (
         <>
             <div className="max-w-screen-lg lg:mx-auto py-12 px-4 bg-[#F4F0EC] rounded-3xl flex md:justify-center md:items-center flex-col mx-5">
@@ -13,7 +12,7 @@ const Client = ({ clientData }) => {
                 <div className="flex flex-wrap justify-center -mx-4">
                     {clientData.map((card) => (
                         <div key={card.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 px-4 mt-5">
-                            <div className="flex flex-col bg-white rounded-2xl p-4 min-h-[200px]">
+                            <div className="flex flex-col bg-white rounded-2xl p-4 md:min-h-[250px]">
                                 <div className='flex '>
                                     <img
                                         src={card.img}
@@ -28,17 +27,12 @@ const Client = ({ clientData }) => {
                                 <div className="flex flex-col">
                                     <p className="text-gray-700 mt-2">{card.pera}</p>
                                 </div>
-
                             </div>
                         </div>
                     ))}
                 </div>
 
             </div>
-
-
-
-
 
         </>
     )

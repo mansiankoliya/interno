@@ -5,7 +5,7 @@ const Counter = () => {
 
         <>
 
-            <div className="py-12 px-4  md:justify-center md:items-center bg-[#F4F0EC] ">
+            <div className="py-12 px-4 md:justify-center md:items-center md:mb-24 mb:10 sm:mb-16  bg-[#F4F0EC] ">
                 <div className="justify-center items-center ">
                     <div className="rounded-lg p-4  text-center justify-center grid grid-cols-4 lg:flex  ">
                         <div className="mr-8 ml-8">
