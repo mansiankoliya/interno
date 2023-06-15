@@ -17,7 +17,7 @@ const Project = (props) => {
                     {props.data.map((project) => (
                         <div key={project.id} className="w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 px-4 mb-1">
                             <div className="bg-white rounded-lg flex flex-col p-4">
-                                <img src={project.ig} alt={project.title} className="w-full h-auto mb-4" />
+                                <img src={project.image} alt={project.title} className="w-full h-auto mb-4" />
                                 <div className="flex justify-between items-center">
                                     <div>
                                         <h3 className="text-lg font-semibold mb-1">{project.title}</h3>

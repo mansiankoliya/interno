@@ -7,7 +7,7 @@ import Contacts from '../Components/Contacts/Contacts'
 const Services = () => {
 
     const servicesbg = {
-        ig: "Images/servicesbg.jpg",
+        image: "Images/servicesbg.jpg",
         title: "Services",
         subtitle: "Home / Services"
     }
@@ -49,7 +49,7 @@ const Services = () => {
     }
 
     const cardFData = {
-        ig: "Images/simg1.png",
+        image: "Images/simg1.png",
         title: "Concept & Details",
         content: "It is a long established fact  will be distracted.Lorem Ipsum is simply dummy from text of the and typesetting indufstry. ",
         num: "01",
@@ -57,7 +57,7 @@ const Services = () => {
     }
 
     const cardSData = {
-        ig: "Images/simg2.png",
+        image: "Images/simg2.png",
         title: "Idea for Work",
         content: "It is a long established fact  will be distracted. Lorem Ipsum is simply dummy from text of the and typesetting indufstry.  ",
         num: "02",
@@ -65,7 +65,7 @@ const Services = () => {
     }
 
     const cardTData = {
-        ig: "Images/simg3.png",
+        image: "Images/simg3.png",
         title: "Design",
         content: "It is a long established fact  will be distracted.Lorem Ipsum is simply dummy from text of the and typesetting indufstry. ",
         num: "03",
@@ -73,7 +73,7 @@ const Services = () => {
     }
 
     const cardFoData = {
-        ig: "Images/simg4.png",
+        image: "Images/simg4.png",
         title: "Perfection",
         content: "It is a long established fact  will be distracted.Lorem Ipsum is simply dummy from text of the and typesetting indufstry. ",
         num: "04",
@@ -98,7 +98,7 @@ const Services = () => {
                 {/* First portion */}
                 <div className="flex flex-col md:flex-row items-center justify-center rounded-lg">
                     <div className="md:w-1/2">
-                        <img src={cardFData.ig} alt="Card" className="w-full" />
+                        <img src={cardFData.image} alt="Card Image" className="w-full" />
                     </div>
                     <div className="md:w-1/2 mt-4 md:mt-0">
                         <div className="text-center md:justify-start sm:justify-start justify-between flex sm:ml-4">
@@ -123,7 +123,7 @@ const Services = () => {
                 {/* Second portion */}
                 <div className="flex flex-col md:flex-row-reverse items-center justify-center rounded-lg mt-8">
                     <div className="md:w-1/2">
-                        <img src={cardSData.ig} alt="Card" className="w-full" />
+                        <img src={cardSData.image} alt="Card Image" className="w-full" />
                     </div>
                     <div className="md:w-1/2 mt-4 md:mt-0">
                         <div className="text-center md:justify-start sm:justify-start justify-between flex sm:ml-4">
@@ -148,7 +148,7 @@ const Services = () => {
                 {/* Third portion */}
                 <div className="flex flex-col md:flex-row items-center justify-center rounded-lg">
                     <div className="md:w-1/2">
-                        <img src={cardTData.ig} alt="Card" className="w-full" />
+                        <img src={cardTData.image} alt="Card Image" className="w-full" />
                     </div>
                     <div className="md:w-1/2 mt-4 md:mt-0">
                         <div className="text-center md:justify-start sm:justify-start justify-between flex sm:ml-4">
@@ -173,7 +173,7 @@ const Services = () => {
                 {/* Fourth portion */}
                 <div className="flex flex-col md:flex-row-reverse items-center justify-center rounded-lg mt-8">
                     <div className="md:w-1/2">
-                        <img src={cardFoData.ig} alt="Card" className="w-full" />
+                        <img src={cardFoData.image} alt="Card Image" className="w-full" />
                     </div>
                     <div className="md:w-1/2 mt-4 md:mt-0">
                         <div className="text-center md:justify-start sm:justify-start justify-between flex sm:ml-4">

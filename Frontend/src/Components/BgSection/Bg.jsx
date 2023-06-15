@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const Bg = () => {
     return (
@@ -17,14 +16,12 @@ const Bg = () => {
                             <br className="xxl:hidden" />
                             <span className="block md:inline">from available variations of the passages.</span>
                         </p>
-                        <Link to='/project' >
-                            <button className="rounded-lg bg-[#292F36] text-white flex justify-center items-center w-[150px] h-10">
-                                Get Started &nbsp;
-                                <span>
-                                    <img src="Images/arrow.png" alt="Arrow" />
-                                </span>
-                            </button>
-                        </Link>
+                        <button className="rounded-lg bg-[#292F36] text-white flex justify-center items-center w-[150px] h-10">
+                            Get Started &nbsp;
+                            <span>
+                                <img src="Images/arrow.png" alt="Arrow" />
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>

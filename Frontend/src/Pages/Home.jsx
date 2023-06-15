@@ -74,25 +74,25 @@ const Home = () => {
             [
                 {
                     id: 1,
-                    ig: "Images/project1.png",
+                    image: "Images/project1.png",
                     title: "Modern Kitchan",
                     content: "Decor / Artchitecture"
                 },
                 {
                     id: 2,
-                    ig: "Images/project2.png",
+                    image: "Images/project2.png",
                     title: "Modern Kitchan",
                     content: "Decor / Artchitecture"
                 },
                 {
                     id: 3,
-                    ig: "Images/project3.png",
+                    image: "Images/project3.png",
                     title: "Modern Kitchan",
                     content: "Decor / Artchitecture"
                 },
                 {
                     id: 4,
-                    ig: "Images/project4.png",
+                    image: "Images/project4.png",
                     title: "Modern Kitchan",
                     content: "Decor / Artchitecture"
                 }
@@ -101,35 +101,34 @@ const Home = () => {
 
 
 
-    const blogsData = {
-        data:
-            [
-                {
-                    id: 1,
-                    img: "Images/blogs1.png",
-                    name: "Kitchan Design",
-                    content: "Let’s Get Solution For Building Construction Work",
-                    date: "26 December,2022"
-                },
-                {
+    const blogsData =
+        [
+            {
 
-                    id: 2,
-                    img: "Images/blogs2.png",
-                    name: "Living Design",
-                    content: "Low Cost Latest Invented Interior Designing Ideas.",
-                    date: "22 December,2022"
-                },
-                {
+                id: 1,
+                img: "Images/blogs1.png",
+                name: "Kitchan Design",
+                content: "Let’s Get Solution For Building Construction Work",
+                date: "26 December,2022"
+            },
+            {
 
-                    id: 3,
-                    img: "Images/blogs3.png",
-                    name: "Interior Design",
-                    content: "Best For Any Office & Business Interior Solution",
-                    date: "25 December,2022"
-                }
+                id: 2,
+                img: "Images/blogs2.png",
+                name: "Living Design",
+                content: "Low Cost Latest Invented Interior Designing Ideas.",
+                date: "22 December,2022"
+            },
+            {
 
-            ]
-    }
+                id: 3,
+                img: "Images/blogs3.png",
+                name: "Interior Design",
+                content: "Best For Any Office & Business Interior Solution",
+                date: "25 December,2022"
+            }
+
+        ]
 
 
     return (
@@ -141,7 +140,7 @@ const Home = () => {
             <LogoSection />
             <ProjectSection {...projectData} />
             <Counter />
-            <Blogs {...blogsData} />
+            <Blogs blogsData={blogsData} />
             <Contacts />
         </>
     )
