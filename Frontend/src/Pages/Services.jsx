@@ -7,7 +7,7 @@ import Contacts from '../Components/Contacts/Contacts'
 const Services = () => {
 
     const servicesbg = {
-        image: "Images/servicesbg.jpg",
+        ig: "Images/servicesbg.jpg",
         title: "Services",
         subtitle: "Home / Services"
     }

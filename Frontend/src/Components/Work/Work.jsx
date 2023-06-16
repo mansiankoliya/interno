@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Work = (props) => {
     return (
@@ -11,10 +10,10 @@ const Work = (props) => {
                             <div className="flex flex-col items-center mx-auto w-full dark:bg-gray-900 rounded-lg p-6 hover:bg-[#F4F0EC]">
                                 <h2 className="text-xl font-semibold text-center text-[#292F36]">{card.title}</h2>
                                 <p className="text-center mt-2 text-[#4D5053]">{card.description}</p>
-                                <Link to="/servicesingle" className="font-semibold text-[#4D5053] flex items-center justify-center py-3">
+                                <a href="/servicesingle" className="font-semibold text-[#4D5053] flex items-center justify-center py-3">
                                     Read More
                                     <i className="fa-solid fa-arrow-right text-[#CDA274] ml-2"></i>
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     ))}
