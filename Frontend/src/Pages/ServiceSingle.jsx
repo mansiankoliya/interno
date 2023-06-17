@@ -8,13 +8,13 @@ import Counter from '../Components/Counter/Counter'
 const ServiceSingle = () => {
 
     const servicesbg = {
-        image: "Images/ssingle.jpg",
+        ig: "Images/ssingle.jpg",
         title: "Service Single",
         subtitle: "Home / Services Single"
     }
 
     const cardData1 = {
-        image: "Images/ssinglecard.png",
+        ig: "Images/ssinglecard.png",
         title: "We love design.That's how we got here.",
         content: "It is a long established fact that a reader will be distracted by the of readable content . ",
         btn: "Our Portfolio"

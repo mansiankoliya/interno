@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import Pagination from '../Pagination/Pagination'
 
-const Blogs = ({ blogsData }) => {
+const Blogs = (props) => {
     return (
         <>
             <div className="max-w-screen-lg mx-auto px-4 md:mb-24 mb:10 sm:mb-16 ">
@@ -14,7 +15,7 @@ const Blogs = ({ blogsData }) => {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ">
-                    {blogsData.map((blog) => (
+                    {props.data.map((blog) => (
                         <div key={blog.id} className="max-w-sm rounded-2xl overflow-hidden shadow-xl m-4 p-2 hover:bg-[#E7E7E7]">
                             <div className="relative">
                                 <img className="w-full" src={blog.img} alt={blog.name} />
@@ -33,13 +34,14 @@ const Blogs = ({ blogsData }) => {
                                         {blog.date}
                                     </span>
                                 </div>
-                                <Link to="/project">  <i className="sarrow fa-solid fa-chevron-right bg-[#F4F0EC] rounded-full p-4 text-[#292F36] hover:bg-[#FFFFFF]"></i></Link>
+                                {/* <Link to="/project">  <i className="sarrow fa-solid fa-chevron-right bg-[#F4F0EC] rounded-full p-4 text-[#292F36] hover:bg-[#FFFFFF]"></i></Link> */}
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
 
+            <Pagination />
 
         </>
     )

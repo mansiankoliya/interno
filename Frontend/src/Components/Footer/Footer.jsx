@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -8,10 +9,10 @@ const Footer = () => {
                     <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                         <div className="md:flex space-x-20">
                             <div className="text-center ">
-                                <a href="/" className="flex md:justify-start sm:justify-center lg:justify-start justify-center">
+                                <Link to="/" className="flex md:justify-start sm:justify-center lg:justify-start justify-center">
                                     <img src="/Images/Logo.png" className="h-8 mr-3" alt="Logo" />
                                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-[#292F36]">Interno</span>
-                                </a>
+                                </Link>
                                 <p className="text-[#4D5053] text-lg lg:text-xl flex md:text-justify lg:w-[300px]  sm:justify-center lg:justify-start justify-center  ">
                                     It is a long established fact that a reader will be distracted looking.
                                 </p>
@@ -27,19 +28,19 @@ const Footer = () => {
                                     <h2 className="mb-6 text-xl font-semibold text-[#292F36]">Pages</h2>
                                     <ul className="text-gray-600 dark:text-gray-400 font-medium space-y-4">
                                         <li>
-                                            <a href="/about" className="hover:underline text-[#4D5053]">About Us</a>
+                                            <Link to="/about" className="hover:underline text-[#4D5053]">About Us</Link>
                                         </li>
                                         <li>
-                                            <a href="/project" className="hover:underline text-[#4D5053]">Our Projects</a>
+                                            <Link to="/project" className="hover:underline text-[#4D5053]">Our Projects</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Our Team</a>
+                                            <Link to="/team" className="hover:underline text-[#4D5053]">Our Team</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Contact Us</a>
+                                            <Link to="/contact" className="hover:underline text-[#4D5053]">Contact Us</Link>
                                         </li>
                                         <li>
-                                            <a href="/services" className="hover:underline text-[#4D5053]">Services</a>
+                                            <Link to="/services" className="hover:underline text-[#4D5053]">Services</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -47,19 +48,19 @@ const Footer = () => {
                                     <h2 className="mb-6 text-xl font-semibold text-[#292F36]">Services</h2>
                                     <ul className="text-gray-600 dark:text-gray-400 font-medium space-y-4">
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Kitchen</a>
+                                            <Link to="/project" className="hover:underline text-[#4D5053]">Kitchen</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Living Area</a>
+                                            <Link to="/project" className="hover:underline text-[#4D5053]">Living Area</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Bathroom</a>
+                                            <Link to="/project" className="hover:underline text-[#4D5053]">Bathroom</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Dining Hall</a>
+                                            <Link to="/project" className="hover:underline text-[#4D5053]">Dining Hall</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="hover:underline text-[#4D5053]">Bedroom</a>
+                                            <Link to="/project" className="hover:underline text-[#4D5053]">Bedroom</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -67,13 +68,13 @@ const Footer = () => {
                                     <h2 className="mb-6 text-xl font-semibold text-[#292F36]">Contact</h2>
                                     <ul className="text-gray-600 dark:text-gray-400 font-medium space-y-4">
                                         <li>
-                                            <a href="/" className="text-[#4D5053]">55 East Birchwood Ave.<br /> Brooklyn, New York 11201</a>
+                                            <Link to="/" className="text-[#4D5053]">55 East Birchwood Ave.<br /> Brooklyn, New York 11201</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="text-[#4D5053]">contact@interno.com</a>
+                                            <Link to="/" className="text-[#4D5053]">contact@interno.com</Link>
                                         </li>
                                         <li>
-                                            <a href="/" className="text-[#4D5053]">(123) 456 - 7890</a>
+                                            <Link to="/" className="text-[#4D5053]">(123) 456 - 7890</Link>
                                         </li>
                                     </ul>
                                 </div>

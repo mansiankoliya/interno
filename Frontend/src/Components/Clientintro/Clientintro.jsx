@@ -4,7 +4,7 @@ import Topbg from '../Topbg/Topbg'
 const Clientintro = (props) => {
 
     const info = {
-        image: "Images/info.jpg",
+        ig: "Images/info.jpg",
         title: "Info",
         subtitle: "Home / Info"
     }

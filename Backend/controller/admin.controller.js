@@ -4,53 +4,71 @@ const Contact = require("../models/contact.model");
 const Blog = require("../models/blog.model");
 const Project = require("../models/project.model");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt')
+
 
 exports.login = async (req, res) => {
     try {
         const emailBody = req.body.email;
         const emailData = await Admin.findOne({ email: emailBody });
-        console.log(":emailData", emailData);
+
         if (emailData == null) {
+
             res.status(404).json({
-                message: "PLEASE CHECK EMAIL",
+                message: "Data not exists",
                 status: 404,
-            });
+            })
+
         } else {
-            const usernameBody = req.body.username;
-            if (usernameBody != emailData.username) {
-                res.status(404).json({
-                    message: "PLEASE CHECK USERNAME",
-                    status: 404,
-                });
-            } else {
-                const token = await jwt.sign({ id: emailData._id }, process.env.SECRET_KEY);
-                const dataUpdate = await Admin.findByIdAndUpdate(
-                    {
-                        _id: emailData._id
-                    },
-                    {
-                        $set: {
-                            token: token
-                        }
-                    },
-                    {
-                        new: true
+
+            bcrypt.compare(req.body.password, emailData.password, async (err, data) => {
+
+                if (data) {
+
+                    const token = await jwt.sign({ id: emailData._id }, process.env.SECRET_KEY);
+
+                    const dataUpdate = await Admin.findByIdAndUpdate(
+                        {
+                            _id: emailData._id
+                        },
+                        {
+                            $set: {
+                                token: token
+                            }
+                        },
+                        {
+                            new: true,
+                            useFindAndModify: false
+                        });
+
+                    res.status(200).json({
+                        message: "ADMIN LOGIN SUCCESSFULLY",
+                        status: 200,
+                        data: dataUpdate
                     });
-                res.status(201).json({
-                    message: "ADMIN LOGIN SUCCESSFULLY",
-                    status: 201,
-                    data: dataUpdate
-                });
-            }
+
+                } else {
+                    res.status(401).json({
+                        message: "Password dose not matched",
+                        status: 401
+                    })
+                }
+            })
+
         }
+
     } catch (error) {
+
         console.log("admin login:", error);
         res.status(500).json({
             message: "Something Went Wrong",
-            status: 500
+            status: 500,
+            error: error.message
         })
     }
 };
+
+
 
 exports.adminContact = async (req, res) => {
     try {
@@ -68,6 +86,8 @@ exports.adminContact = async (req, res) => {
         })
     }
 };
+
+
 
 exports.adminProfession = async (req, res) => {
     try {

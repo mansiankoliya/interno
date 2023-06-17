@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AboutSection = ({ aboutData }) => {
     return (
@@ -21,10 +22,12 @@ const AboutSection = ({ aboutData }) => {
                         </div>
                     </div>
                     <div className='flex justify-center lg:justify-start mb-6'>
-                        <button className="rounded-lg bg-[#292F36] text-white py-2 px-4 mt-4  justify-center items-center flex ">
-                            {aboutData.btn}
-                            <i className="fa-solid fa-arrow-right text-[#CDA274] ml-2"></i>
-                        </button>
+                        <Link to="/contact" >
+                            <button className="rounded-lg bg-[#292F36] text-white py-2 px-4 mt-4  justify-center items-center flex ">
+                                {aboutData.btn}
+                                <i className="fa-solid fa-arrow-right text-[#CDA274] ml-2"></i>
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

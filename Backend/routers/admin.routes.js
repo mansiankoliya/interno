@@ -7,7 +7,7 @@ const {
     adminProject,
 } = require("../controller/admin.controller");
 
-router.put("/login", login);
+router.post("/login", login);
 router.get("/adminProfession", adminProfession);
 router.get("/adminBlog", adminBlog);
 router.get("/adminContact", adminContact);

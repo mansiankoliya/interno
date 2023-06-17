@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Contacts = () => {
     return (
@@ -9,10 +10,12 @@ const Contacts = () => {
                         <p className="text-center text-4xl">Wanna join the interno?</p>
                         <p className="text-center text-sm font-normal mt-3">It is a long established fact that will be distracted.</p>
                         <div className='flex justify-center lg:justify-center  mt-10'>
-                            <button className="rounded-xl bg-[#CDA274] text-[#FFFFFF] text-xl  justify-center items-center flex  w-[200px] lg:w-[250px] md:w-[230px] h-12 shadow-xl ">
-                                Contact With Us
-                                <i className="fa-solid fa-arrow-right text-[#292F36] ml-2"></i>
-                            </button>
+                            <Link to='/contact' >
+                                <button className="rounded-xl bg-[#CDA274] text-[#FFFFFF] text-xl  justify-center items-center flex  w-[200px] lg:w-[250px] md:w-[230px] h-12 shadow-xl ">
+                                    Contact With Us
+                                    <i className="fa-solid fa-arrow-right text-[#292F36] ml-2"></i>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

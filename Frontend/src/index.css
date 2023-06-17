@@ -33,6 +33,13 @@ code {
   background-repeat: no-repeat;
 }
 
+@media screen and (min-height: 1280px) {
+  .homebg {
+    height: 900px;
+  }
+}
+
+
 
 
 

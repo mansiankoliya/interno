@@ -7,59 +7,64 @@ import AboutClient from '../Components/AboutClient/AboutClient'
 const About = () => {
 
     const aboutbgData = {
-        image: "Images/aboutbg.png",
+        ig: "Images/aboutbg.png",
         title: "About Us",
         subtitle: "Home / About Us"
     }
 
     const cardData = {
-        image: "Images/acard1.png",
+        ig: "Images/acard1.png",
         title: "What We Do",
         content: "It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using that it has a more- or - less normal.",
         btn: "Our Concept"
     }
 
     const cardData1 = {
-        image: "Images/acard2.png",
+        ig: "Images/acard2.png",
         title: "The End Result",
         content: "It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using that it has a more-or-less normal.",
         btn: "Our Portfolio"
     }
 
     const AboutClientData = {
+        heading: "What the People Think About Us",
         data:
             [
                 {
                     id: 1,
-                    image: "Images/swipe1.png",
+                    ig: "Images/swipe1.png",
                     name: "Charlotte Levi",
                     work: "Design, Australia",
                     number: "+1 (378) 400-1234",
                     email: "Charlotte@email.com",
+                    link: '/teamsingle'
                 },
                 {
                     id: 2,
-                    image: "Images/swipe2.png",
+                    ig: "Images/swipe2.png",
                     name: "Nattasha Julie",
                     work: "Design, Australia",
                     number: "+1 (378) 400-1234",
                     email: "Nattasha@email.com",
+                    link: '/teamsingle'
                 },
                 {
                     id: 3,
-                    image: "Images/swipe3.png",
+                    ig: "Images/swipe3.png",
                     name: "John Smith",
                     work: "Design, Australia",
                     number: "+1 (378) 400-1234",
                     email: "John@email.com",
+                    link: '/teamsingle'
                 },
                 {
                     id: 4,
-                    image: "Images/swipe4.png",
+                    ig: "Images/swipe4.png",
                     name: "Nora Owen",
                     work: "Design, Australia",
                     number: "+1 (378) 400-1234",
                     email: "Nora@email.com",
+                    link: '/teamsingle'
                 },
             ]
     }
@@ -70,7 +75,7 @@ const About = () => {
 
             <div className='flex flex-col md:flex-row justify-center items-center my-32 mx-auto'>
                 <div className='pattern p-1 md:mr-4'>
-                    <img src="Images/Pattern.png" alt="" className='w-full h-full object-cover' />
+                    <img src="Images/Pattern.png" alt="pattern" className='w-full h-full object-cover' />
                 </div>
                 <div className='flex flex-col justify-center items-center text-center text-xl text-[#292F36] md:text-left md:w-1/2 lg:w-1/3'>
                     <p className="text-[#292F36] text-6xl">“</p>
@@ -88,7 +93,7 @@ const About = () => {
                     <p className='text-[#4D5053] mt-4 text-xl md:text-xl sm:text-sm'>- BUNNY WILLIAMS</p>
                 </div>
                 <div className='pattern1 p-1 md:ml-4'>
-                    <img src="Images/Pattern1.png" alt="" className='w-full h-full object-cover' />
+                    <img src="Images/Pattern1.png" alt="pattern" className='w-full h-full object-cover' />
                 </div>
             </div>
 
@@ -138,7 +143,7 @@ const About = () => {
                         </button>
                     </div>
 
-                </form >
+                </form>
             </div>
 
 

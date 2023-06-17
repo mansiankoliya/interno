@@ -27,7 +27,6 @@ const Client = ({ clientData }) => {
                                 <div className="flex flex-col">
                                     <p className="text-gray-700 mt-2">{card.pera}</p>
                                 </div>
-
                             </div>
                         </div>
                     ))}
