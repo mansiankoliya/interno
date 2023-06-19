@@ -2,6 +2,8 @@ import React from 'react'
 import Topbg from '../Components/Topbg/Topbg'
 import Work from '../Components/Work/Work'
 import Contacts from '../Components/Contacts/Contacts'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 
 const Services = () => {
@@ -82,6 +84,7 @@ const Services = () => {
 
     return (
         <>
+            <Header />
             <Topbg {...servicesbg} />
             <Work {...workData} />
 
@@ -200,6 +203,8 @@ const Services = () => {
 
 
             <Contacts />
+
+            <Footer />
         </>
     )
 }

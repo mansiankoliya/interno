@@ -1,9 +1,9 @@
 const Blog = require("../models/blog.model");
 const cloudinary = require('../helper/cloudinary.helper');
 const fs = require("fs");
-
+      
 exports.insert = async (req, res) => {
-    try {
+    try {   
         const cloudinaryImageUploadMethod = async (pathLink) => {
             return new Promise(resolve => {
                 cloudinary.uploader.upload(pathLink, {

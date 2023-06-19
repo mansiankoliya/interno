@@ -8,6 +8,8 @@ import ProjectSection from '../Components/ProjectSection/ProjectSection'
 import Counter from '../Components/Counter/Counter'
 import Blogs from '../Components/Blogs/Blogs'
 import Contacts from '../Components/Contacts/Contacts'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 
 const Home = () => {
@@ -134,6 +136,7 @@ const Home = () => {
 
     return (
         <>
+            <Header />
             <Bg />
             <Work {...workData} />
             <AboutSection aboutData={aboutData} />
@@ -143,6 +146,7 @@ const Home = () => {
             <Counter />
             <Blogs {...blogsData} />
             <Contacts />
+            <Footer />
         </>
     )
 }

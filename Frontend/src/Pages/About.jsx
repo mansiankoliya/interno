@@ -5,6 +5,8 @@ import AboutCard1 from '../Components/AboutCard1/AboutCard1'
 import AboutClient from '../Components/AboutClient/AboutClient'
 import { connect } from 'react-redux';
 import { ContactData } from '../Store/Action/ContactData'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 const About = ({ res, dispatch }) => {
 
@@ -102,6 +104,8 @@ const About = ({ res, dispatch }) => {
 
     return (
         <>
+
+            <Header />
             <Topbg {...aboutbgData} />
 
             <div className='flex flex-col md:flex-row justify-center items-center my-32 mx-auto'>
@@ -201,7 +205,7 @@ const About = ({ res, dispatch }) => {
                 </form>
             </div>
 
-
+            <Footer />
 
         </>
     )

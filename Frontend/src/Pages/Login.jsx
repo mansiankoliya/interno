@@ -35,7 +35,7 @@ const Login = ({ res, dispatch }) => {
         const token = res.tokenObj?.id_token;
         localStorage.setItem("token", token);
         if (token) {
-            navigate('/home');
+            window.location.href = '/home';
         }
     };
 
@@ -60,7 +60,7 @@ const Login = ({ res, dispatch }) => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            navigate('/home');
+            window.location.href = '/home';
         }
     }, [navigate]);
 
@@ -76,7 +76,7 @@ const Login = ({ res, dispatch }) => {
         e.preventDefault();
         try {
             await dispatch(LoginData(data));
-            navigate('/home');
+            window.location.href = '/home';
         } catch (error) {
             console.log("LoginApiCallerr", error);
         }
@@ -138,11 +138,11 @@ const Login = ({ res, dispatch }) => {
                                     />
                                 </div>
                                 <div className="flex justify-center items-center">
-                                    <Link to="/home">
-                                        <button onClick={handleSubmit} className="rounded-lg bg-[#292F36] text-white w-[150px] h-10">
-                                            Sign in
-                                        </button>
-                                    </Link>
+                                    {/* <Link to="/home"> */}
+                                    <button onClick={handleSubmit} className="rounded-lg bg-[#292F36] text-white w-[150px] h-10">
+                                        Sign in
+                                    </button>
+                                    {/* </Link> */}
                                 </div>
                             </form>
                         </div>

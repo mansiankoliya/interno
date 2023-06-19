@@ -19,27 +19,35 @@ import Login from './Pages/Login';
 
 function App() {
 
+  const token = localStorage.getItem('token')
 
   return (
     <>
-      <BrowserRouter >
-        <Header />
-        <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/servicesingle' element={<ServiceSingle />} />
-          <Route path='/project' element={<Project />} />
-          <Route path='/info' element={<ClientiInfo />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/team' element={<Team />} />
-          <Route path='/teamsingle' element={<TeamSingle />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/' element={<Login />} />
-          <Route path='/*' element={<Errorpage />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+
+      {
+        token === null ? (
+          <Routes>
+            <Route path="/" element={<Login />} />
+          </Routes>
+        ) : (
+          <>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/servicesingle" element={<ServiceSingle />} />
+              <Route path="/project" element={<Project />} />
+              <Route path="/info" element={<ClientiInfo />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/teamsingle" element={<TeamSingle />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/*" element={<Errorpage />} />
+            </Routes>
+          </>
+        )
+      }
+
     </>
   );
 }

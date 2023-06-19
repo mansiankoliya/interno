@@ -2,6 +2,8 @@ import React from 'react'
 import Topbg from '../Components/Topbg/Topbg'
 import { Link } from 'react-router-dom'
 import Pagination from '../Components/Pagination/Pagination'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 const Project = () => {
 
@@ -68,6 +70,7 @@ const Project = () => {
 
     return (
         <>
+            <Header />
             <Topbg {...projectsbg} />
 
             {/* button area */}
@@ -121,6 +124,8 @@ const Project = () => {
 
             {/* number section */}
             <Pagination />
+
+            <Footer />
 
         </>
     )

@@ -1,5 +1,7 @@
 import React from 'react'
 import Clientintro from '../Components/Clientintro/Clientintro'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 const ClientiInfo = () => {
 
@@ -16,7 +18,9 @@ const ClientiInfo = () => {
 
     return (
         <>
+        <Header />
             <Clientintro {...ClientData} />
+            <Footer />
         </>
     )
 }

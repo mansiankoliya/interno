@@ -2,6 +2,8 @@ import React from 'react'
 import Topbg from '../Components/Topbg/Topbg'
 import Blogs from '../Components/Blogs/Blogs'
 import { Link } from 'react-router-dom'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 const Blog = () => {
 
@@ -66,6 +68,9 @@ const Blog = () => {
 
     return (
         <>
+
+    <Header />
+
             <Topbg {...Blogbg} />
 
 
@@ -77,7 +82,7 @@ const Blog = () => {
                     </h1>
                 </div>
                 <div className='flex md:justify-center md:items-center md:flex-row flex-col mt-3 md:mt-4 sm:mt-1 '>
-                    <div className='md:w-5/12 sm:w-6/12 '>  
+                    <div className='md:w-5/12 sm:w-6/12 '>
                         <img src="Images/post.png" alt="" />
                     </div>
                     <div className='md:w-7/12 ml-12 mt-8 sm:w-6/12'>
@@ -109,6 +114,8 @@ const Blog = () => {
             </div>
 
             <Blogs {...blogsData} />
+
+            <Footer />
         </>
     )
 }

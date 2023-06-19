@@ -3,6 +3,8 @@ import Topbg from '../Components/Topbg/Topbg'
 import LogoSection from '../Components/Logo/LogoSection'
 import AboutCard1 from '../Components/AboutCard1/AboutCard1'
 import Counter from '../Components/Counter/Counter'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 
 const ServiceSingle = () => {
@@ -22,6 +24,8 @@ const ServiceSingle = () => {
 
     return (
         <>
+
+        <Header />
             <Topbg {...servicesbg} />
 
             {/* text portion */}
@@ -129,6 +133,8 @@ const ServiceSingle = () => {
             <AboutCard1 {...cardData1} />
 
             <Counter />
+
+            <Footer />
 
         </>
     )

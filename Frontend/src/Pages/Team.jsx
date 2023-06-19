@@ -1,6 +1,8 @@
 import React from 'react'
 import Topbg from '../Components/Topbg/Topbg'
 import { Link } from 'react-router-dom'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 
 const Team = () => {
 
@@ -84,6 +86,8 @@ const Team = () => {
 
     return (
         <>
+        
+        <Header />
             <Topbg  {...Teambg} />
             <div className='max-w-screen-lg lg:mx-auto my-14 md:my-32 sm:my-24 mx-5 sm:mx-10 md:mx-10'>
                 <div className=" flex flex-wrap justify-center">
@@ -117,6 +121,8 @@ const Team = () => {
                 </div>
 
             </div>
+
+            <Footer />
         </>
     )
 }

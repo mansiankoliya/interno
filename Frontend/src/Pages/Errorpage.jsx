@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Footer from '../Components/Footer/Footer'
+import Header from '../Components/Header/Header'
 
 const Errorpage = () => {
 
@@ -12,6 +14,7 @@ const Errorpage = () => {
 
     return (
         <>
+            <Header />
             <div className="max-w-screen-lg mx-auto flex flex-col lg:flex-row lg:items-center lg:pb-24 md:pb-16 sm:pb-12 justify-between md:justify-center md:items-center">
                 <div className="lg:flex lg:items-center lg:justify-between bg-white rounded-lg  p-6">
                     <div className="lg:w-1/2 lg:pr-8">
@@ -31,6 +34,7 @@ const Errorpage = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

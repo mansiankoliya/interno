@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Topbg from '../Components/Topbg/Topbg'
 import { connect } from 'react-redux';
 import { ContactData } from '../Store/Action/ContactData'
+import Header from '../Components/Header/Header';
+import Footer from '../Components/Footer/Footer';
 
 const Contact = ({ res, dispatch }) => {
 
@@ -42,6 +44,8 @@ const Contact = ({ res, dispatch }) => {
 
     return (
         <>
+
+        <Header />
             <Topbg {...contactback} />
 
 
@@ -168,6 +172,7 @@ const Contact = ({ res, dispatch }) => {
                 </div >
             </div >
 
+<Footer/>
 
         </>
     )
