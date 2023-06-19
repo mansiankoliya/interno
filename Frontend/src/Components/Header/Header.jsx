@@ -32,6 +32,11 @@ const Header = () => {
 
     };
 
+    const logOut = () => {
+        localStorage.removeItem('token')
+        navigate('/')
+    }
+
     return (
         <>
             <nav className="bg-white dark:bg-gray-900 w-full z-20 top-0 left-0 ">
@@ -158,8 +163,11 @@ const Header = () => {
 
                             <li>
                                 <NavLink
-                                    to="/login" >
-                                    <i className="fa-solid fa-right-to-bracket text-[#292F36] text-2xl block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"></i>
+                                    to="" >
+                                    <button onClick={logOut}>
+                                        <i className="fa-solid fa-right-to-bracket text-[#292F36] text-2xl block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                        </i>
+                                    </button>
                                 </NavLink>
                             </li>
                         </ul>

@@ -3,13 +3,16 @@ const Contact = require("../models/contact.model");
 exports.insert = async (req, res) => {
     try {
         const email = req.body.email;
+
         const emailData = await Contact.findOne({ email: email });
+
         if (emailData != null) {
-            res.status(404).json({
+            res.status(406).json({
                 message: "THIS EMAIL ALREADY EXISTED",
-                status: 404,
+                status: 406,
             });
         } else {
+
             const contactData = new Contact({
                 name: req.body.name,
                 email: email,
@@ -17,12 +20,15 @@ exports.insert = async (req, res) => {
                 phone: req.body.phone,
                 message: req.body.message,
             });
+
             const saveData = await contactData.save();
+
             res.status(201).json({
                 message: "CONTACT INSERTED SUCCESSFULLY",
                 status: 201,
                 data: saveData,
             })
+
         }
     } catch (error) {
         console.log("Contact insert error", error);
@@ -32,6 +38,8 @@ exports.insert = async (req, res) => {
         })
     }
 };
+
+
 
 exports.list = async (req, res) => {
     try {

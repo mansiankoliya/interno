@@ -18,7 +18,7 @@ const Errorpage = () => {
                         <h2 className="text-2xl md:text-8xl font-bold text-[#CDA274] mb-4 md:justify-center md:flex lg:justify-start sm:justify-center sm:flex md:w-[80%]">{cardData1.title}</h2>
                         <p className="text-[#292F36] justify-center items-center mb-4 text-xl md:w-[80%]">{cardData1.content}</p>
                         <div className='flex justify-center lg:justify-start mb-6'>
-                            <Link to="/">
+                            <Link to="/home">
                                 <button className="rounded-lg bg-[#292F36] text-white py-2 px-4 mt-4  justify-center items-center flex ">
                                     {cardData1.btn}
                                     <i className="fa-solid fa-arrow-right text-[#CDA274] ml-2"></i>

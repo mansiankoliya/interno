@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                         <div className="md:flex space-x-20">
                             <div className="text-center ">
-                                <Link to="/" className="flex md:justify-start sm:justify-center lg:justify-start justify-center">
+                                <Link to="/home" className="flex md:justify-start sm:justify-center lg:justify-start justify-center">
                                     <img src="/Images/Logo.png" className="h-8 mr-3" alt="Logo" />
                                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-[#292F36]">Interno</span>
                                 </Link>
@@ -68,13 +68,13 @@ const Footer = () => {
                                     <h2 className="mb-6 text-xl font-semibold text-[#292F36]">Contact</h2>
                                     <ul className="text-gray-600 dark:text-gray-400 font-medium space-y-4">
                                         <li>
-                                            <Link to="/" className="text-[#4D5053]">55 East Birchwood Ave.<br /> Brooklyn, New York 11201</Link>
+                                            <Link to="/home" className="text-[#4D5053]">55 East Birchwood Ave.<br /> Brooklyn, New York 11201</Link>
                                         </li>
                                         <li>
-                                            <Link to="/" className="text-[#4D5053]">contact@interno.com</Link>
+                                            <Link to="/home" className="text-[#4D5053]">contact@interno.com</Link>
                                         </li>
                                         <li>
-                                            <Link to="/" className="text-[#4D5053]">(123) 456 - 7890</Link>
+                                            <Link to="/home" className="text-[#4D5053]">(123) 456 - 7890</Link>
                                         </li>
                                     </ul>
                                 </div>

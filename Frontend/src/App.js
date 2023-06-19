@@ -17,14 +17,15 @@ import Errorpage from './Pages/Errorpage';
 import Login from './Pages/Login';
 
 
-
 function App() {
+
+
   return (
     <>
       <BrowserRouter >
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/services' element={<Services />} />
           <Route path='/servicesingle' element={<ServiceSingle />} />
@@ -34,7 +35,7 @@ function App() {
           <Route path='/team' element={<Team />} />
           <Route path='/teamsingle' element={<TeamSingle />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
           <Route path='/*' element={<Errorpage />} />
         </Routes>
         <Footer />

@@ -1,24 +1,42 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { LoginData } from '../Store/Action/LoginData'
-import { connect } from 'react-redux'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginData } from '../Store/Action/LoginData';
+import { connect } from 'react-redux';
 import { useGoogleLogin } from 'react-google-login';
-import { refreshTokenSetup } from '../utils/refreshToken';
+import { gapi } from 'gapi-script';
 
-
+const clientId = process.env.REACT_APP_MY_SECRET_KEY;
 
 const Login = ({ res, dispatch }) => {
 
-    const clientId = "724628691781-3p4b6ehdboub9q95s3p4a5diil4fehel.apps.googleusercontent.com"
+    const navigate = useNavigate();
+
+    const [data, setData] = useState({
+        email: "",
+        password: ""
+    });
+
+
+    // google with login
+    useEffect(() => {
+        function start() {
+            gapi.client.init({
+                clientId: clientId,
+                scpoe: ""
+            });
+        }
+        gapi.load('client:auth2', start);
+    }, []);
+
 
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
-        alert(
-            `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-        );
-        refreshTokenSetup(res);
+        console.log('token..', res);
+        const token = res.tokenObj?.id_token;
+        localStorage.setItem("token", token);
+        if (token) {
+            navigate('/home');
+        }
     };
 
     const onFailure = (res) => {
@@ -28,104 +46,84 @@ const Login = ({ res, dispatch }) => {
     const { signIn } = useGoogleLogin({
         onSuccess,
         onFailure,
-        clientId,
-        isSignedIn: true,
-        accessType: 'offline',
-        responseType: 'code',
-        prompt: 'consent',
+        clientId: clientId,
+        isSignedIn: false,
+        cookiePolicy: "single_host_origin",
+        prompt: "select_account"
     });
 
+    const handleLoginClick = () => {
+        signIn();
+    };
 
-    const navigate = useNavigate()
+    // Redirect to home page if already logged in
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate('/home');
+        }
+    }, [navigate]);
 
-    const [data, setData] = useState({
-        email: "",
-        password: ""
-    });
 
-    const handelInput = (e) => {
+
+    // Login API call
+    const handleInput = (e) => {
         const { name, value } = e.target;
-        setData({ ...data, [name]: value })
-    }
+        setData({ ...data, [name]: value });
+    };
 
-    //login api call
-    const handelSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await dispatch(LoginData(data));
-            navigate('/')
+            await dispatch(LoginData(data));
+            navigate('/home');
         } catch (error) {
             console.log("LoginApiCallerr", error);
         }
-    }
-
+    };
 
     return (
         <>
-            <section class="">
-                <div class="flex flex-col items-center justify-center mx-auto my-10 md:my-20 sm:my-16 ">
-                    <div class="w-full bg-white rounded-lg shadow sm:max-w-md border-2  ">
-                        <div class="p-6 space-y-4 md:space-y-6 sm:p-8 ">
-                            <h1 class="text-xl font-bold leading-tight tracking-tight text-[#292F36] md:text-2xl">
+            <section>
+                <div className="flex flex-col items-center justify-center mx-auto my-10 md:my-20 sm:my-16">
+                    <div className="w-full bg-white rounded-lg shadow sm:max-w-md border-2">
+                        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                            <h1 className="text-xl font-bold leading-tight tracking-tight text-[#292F36] md:text-2xl">
                                 Sign in to your account
                             </h1>
-                            <div className='flex items-center justify-center'>
-                                <button onClick={signIn} className="rounded-lg bg-[white] text-[#292F36]  h-11 hover:border-2 hover:border-gray-300  w-[60%] justify-center items-center flex text-center">
-                                    <div className='flex text-center items-center'>
-                                        <div className='mr-2'>
-                                            <img src="Images/google.png" className='h-8' alt="google" />
+                            <div className="flex items-center justify-center">
+                                <button onClick={handleLoginClick} className="rounded-lg bg-[white] text-[#292F36] h-11 hover:border-2 hover:border-gray-300 w-[60%] justify-center items-center flex text-center">
+                                    <div className="flex text-center items-center">
+                                        <div className="mr-2">
+                                            <img src="Images/google.png" className="h-8" alt="google" />
                                         </div>
-                                        Continue with google
+                                        Continue with Google
                                     </div>
                                 </button>
-                                {/* <GoogleLogin
-                                    clientId={clientId}
-                                    buttonText="Continue with Google"
-                                    onSuccess={onSuccess}
-                                    onFailure={onFailur}
-                                    cookiePolicy={'single_host_origin'}
-                                    isSignedIn={true}
-                                    // prompt="select_account"
-                                    plugin_name="cricketwaves"
-                                    prompt="consent"
-                                /> */}
-                                {/* <GoogleLogin
-                                    clientId={clientId}
-                                    buttonText="Login"
-                                    onSuccess={onSuccess}
-                                    onFailure={onFailure}
-                                    cookiePolicy={'single_host_origin'}
-                                    style={{ marginTop: '100px' }}
-                                    isSignedIn={true}
-                                /> */}
                             </div>
                             <div className="flex justify-center items-center">
                                 <div className="flex items-center border-t border-[#C6C6C6] w-[40%]"></div>
                                 <p className="text-[#292F36] px-4 text-sm">Or</p>
                                 <div className="flex items-center border-t border-[#C6C6C6] w-[40%]"></div>
                             </div>
-                            <form class="space-y-4 md:space-y-6" action="#">
+                            <form className="space-y-4 md:space-y-6" action="#">
                                 <div>
-                                    <label
-                                        for="email"
-                                        class="block mb-2 text-sm font-medium  text-[#292F36]"
-                                    >Your email
+                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#292F36]">
+                                        Your email
                                     </label>
                                     <input
                                         type="email"
                                         name="email"
                                         id="email"
-                                        class="bg-gray-50 border-2 border-[#CDA274] text-gray-900 sm:text-sm rounded-lg  block w-full p-2.5  dark:placeholder-gray-400 dark:text-white "
+                                        className="bg-gray-50 border-2 border-[#CDA274] text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400 dark:text-white"
                                         placeholder="name@company.com"
                                         required=""
-                                        onChange={handelInput}
+                                        onChange={handleInput}
                                         value={data.email}
                                     />
                                 </div>
                                 <div>
-                                    <label
-                                        for="password"
-                                        class="block mb-2 text-sm font-medium text-[#292F36]">
+                                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-[#292F36]">
                                         Password
                                     </label>
                                     <input
@@ -133,17 +131,15 @@ const Login = ({ res, dispatch }) => {
                                         name="password"
                                         id="password"
                                         placeholder="••••••••"
-                                        class="bg-gray-50 border-2 border-[#CDA274] text-gray-900 sm:text-sm rounded-lg  block w-full p-2.5  dark:placeholder-gray-400 dark:text-white"
+                                        className="bg-gray-50 border-2 border-[#CDA274] text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400 dark:text-white"
                                         required=""
-                                        onChange={handelInput}
+                                        onChange={handleInput}
                                         value={data.password}
                                     />
                                 </div>
-                                <div className='flex justify-center items-center '>
-                                    <Link >
-                                        <button
-                                            className="rounded-lg bg-[#292F36] text-white  w-[150px] h-10"
-                                            onClick={handelSubmit} >
+                                <div className="flex justify-center items-center">
+                                    <Link to="/home">
+                                        <button onClick={handleSubmit} className="rounded-lg bg-[#292F36] text-white w-[150px] h-10">
                                             Sign in
                                         </button>
                                     </Link>
@@ -152,13 +148,13 @@ const Login = ({ res, dispatch }) => {
                         </div>
                     </div>
                 </div>
-            </section >
+            </section>
         </>
-    )
-}
+    );
+};
 
 const mapStateToProps = (state) => ({
     res: state.LoginData
-})
+});
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(Login);
