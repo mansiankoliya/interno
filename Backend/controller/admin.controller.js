@@ -20,7 +20,7 @@ exports.login = async (req, res) => {
             })
 
         } else {
-
+            // asdfgh
             bcrypt.compare(req.body.password, emailData.password, async (err, data) => {
 
                 if (data) {
