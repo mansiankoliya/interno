@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { LoginData } from '../Store/Action/LoginData';
+import { LogOut } from '../Store/Action/LogOut'
 import { connect } from 'react-redux';
 import { useGoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
@@ -9,7 +10,7 @@ const clientId = process.env.REACT_APP_MY_SECRET_KEY;
 
 const Login = ({ res, dispatch }) => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [data, setData] = useState({
         email: "",
@@ -33,7 +34,7 @@ const Login = ({ res, dispatch }) => {
         console.log('Login Success: currentUser:', res.profileObj);
         console.log('token..', res);
         const token = res.tokenObj?.id_token;
-        localStorage.setItem("token", token);
+        localStorage.setItem('token', token);
         if (token) {
             window.location.href = '/home';
         }
@@ -42,6 +43,7 @@ const Login = ({ res, dispatch }) => {
     const onFailure = (res) => {
         console.log('Login failed: res:', res);
     };
+
 
     const { signIn } = useGoogleLogin({
         onSuccess,
@@ -56,15 +58,6 @@ const Login = ({ res, dispatch }) => {
         signIn();
     };
 
-    // Redirect to home page if already logged in
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            window.location.href = '/home';
-        }
-    }, [navigate]);
-
-
 
     // Login API call
     const handleInput = (e) => {
@@ -72,8 +65,8 @@ const Login = ({ res, dispatch }) => {
         setData({ ...data, [name]: value });
     };
 
+
     const handleSubmit = async (e) => {
-        e.preventDefault();
         try {
             await dispatch(LoginData(data));
             window.location.href = '/home';
@@ -81,6 +74,29 @@ const Login = ({ res, dispatch }) => {
             console.log("LoginApiCallerr", error);
         }
     };
+
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+    };
+
+
+    useEffect(() => {
+        const logoutTimer = setTimeout(async () => {
+            try {
+                await dispatch(LogOut());
+                handleLogout();
+            } catch (error) {
+                console.log("Logout API Error", error);
+            }
+        }, 2 * 60 * 1000);
+
+        return () => {
+            clearTimeout(logoutTimer);
+        };
+    }, [dispatch]);
+
 
     return (
         <>
@@ -154,7 +170,8 @@ const Login = ({ res, dispatch }) => {
 };
 
 const mapStateToProps = (state) => ({
-    res: state.LoginData
+    res: state.LoginData,
+    res: state.LogOut
 });
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Login)

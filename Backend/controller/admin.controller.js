@@ -25,7 +25,9 @@ exports.login = async (req, res) => {
 
                 if (data) {
 
-                    const token = await jwt.sign({ id: emailData._id }, process.env.SECRET_KEY);
+                    const token = await jwt.sign({ id: emailData._id }, process.env.SECRET_KEY, {
+                        expiresIn: '2h', // Set token expiration to 4 hours
+                    });
 
                     const dataUpdate = await Admin.findByIdAndUpdate(
                         {
@@ -139,3 +141,22 @@ exports.adminProject = async (req, res) => {
         })
     }
 };
+
+//Log out
+exports.logout = async (req, res) => {
+    try {
+        req.admin.token = ''
+        res.clearCookie("jwt");
+        await req.admin.save();
+        res.status(201).json({
+            message: "logout successfully...",
+            status: 201
+        })
+    } catch (error) {
+        res.status(500).json({
+            msg: "something went wrong...!",
+            status: 500,
+            error: error.message
+        })
+    }
+}
